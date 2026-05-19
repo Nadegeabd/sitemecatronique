@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests - Convoyeur MOLL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="photos/LOGO MOLL.jpg" class="logo-img" alt="Logo">
+                Convoyeur MOLL
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="cahier.html">Cahier des charges</a></li>
+            <li><a href="tests.html">Tests</a></li>
+            <li><a href="Déroulé & problèmes.html">Déroulé & problèmes</a></li>
+            <li><a href="projet-final.html">Projet final</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Tests</h1>
+
+        <div class="card">
+            <div class="card-content">
+                <h2>Test de caméra</h2>
+                <div class="video-container">
+                    <!-- Exemple avec une vidéo locale (fichier dans le dossier videos/) -->
+                    <video controls>
+                        <source src="photos/test caméra.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <p>Test de la caméra et de la détection d'objet.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <h2>Tests moteur, acheminement</h2>
+                <div class="video-grid">
+                    <div style="text-align: center;">
+                        <div class="video-container-portrait">
+                            <video controls>
+                                <source src="photos/test moteur.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <p>Test du moteur avec le rouleau entraîneur</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="video-container-portrait">
+                            <video controls>
+                                <source src="photos/test acheminement.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <p>Test d’acheminement du savon</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div class="video-container-portrait">
+                            <video controls>
+                                <source src="photos/données moteur.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <p>Test vitesse du moteur </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Projet Mécatronique – Icam – 2026</p>
+    </footer>
+</body>
+</html>

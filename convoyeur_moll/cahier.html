@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cahier des charges - Convoyeur MOLL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="photos/LOGO MOLL.jpg" class="logo-img" alt="Logo">
+                Convoyeur MOLL
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="cahier.html">Cahier des charges</a></li>
+            <li><a href="tests.html">Tests</a></li>
+            <li><a href="Déroulé & problèmes.html">Déroulé & problèmes</a></li>
+            <li><a href="projet-final.html">Projet final</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Cahier des charges</h1>
+
+        <!-- Objectif général -->
+        <div class="card">
+            <div class="card-content">
+                <h2>Objectif général</h2>
+                <p>Réaliser un convoyeur automatisé capable de transporter des savons sur une ligne de production et de les trier en fonction de leur taille et de leurs défauts de couleur. Le système doit être supervisé via une interface homme-machine (IHM). <br> Objectifs :
+<br>- Transporter les savons de manière fiable sur la ligne de production.
+<br>- Trier automatiquement les savons par taille et défauts.
+<br>- Respecter les contraintes techniques et les ressources disponibles à l’ICAM.
+                </p>
+            </div>
+        </div>
+
+        <!-- Spécifications et contraintes (2 colonnes) -->
+        <div class="grid-2cols">
+            <div class="text-card">
+                <h3>Spécifications fonctionnelles</h3>
+                <ul>
+                    <li>Vitesse de convoyage réglable (6 cm/s)</li>
+                    <li>Détection de taille : capteur infrarouge</li>
+                    <li>Détection de défaut de couleur : caméra</li>
+                    <li>Tri automatique vers deux bacs distincts</li>
+                </ul>
+            </div>
+            <div class="text-card">
+                <h3>Contraintes techniques</h3>
+                <ul>
+                    <li>Ressources de l'Icam (Fablab, imprimantes 3D, composants électroniques)</li>
+                    <li>Convoyeur en amont opérationnel et fournit les savons selon la cadence attendue</li>
+                    <li>Opérateurs et techniciens formés à l'utilisation et à la maintenance</li>
+                    <li>Environnement de l'usine aux normes d'hygiènes</li>
+                    <li>Alimentation 24V DC, normes électriques respectées</li>
+                    <li>Code commenté et documentation complète</li>
+                    <li>Délai maximal : 8 mois</li>
+                    <li>Budget maximal : 1500 €</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Étapes de réalisation -->
+        <div class="card">
+            <div class="card-content">
+                <h2>Étapes de réalisation</h2>
+                <ol>
+                    <li>Définition du fonctionnement global du système</li>
+                    <li>Réalisation du cahier des charges, cahier de conception</li>
+                    <li>Conception 3D de la structure</li>
+                    <li>Choix des composants</li>
+                    <li>Programmation et câblage de la partie électronique</li>
+                    <li>Assemblage</li>
+                    <li>Tests du système</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ===== SECTION MATÉRIEL UTILISÉ ===== -->
+        <h2>Matériel utilisé</h2>
+        
+        <!-- Grille Motorisation / Électronique -->
+        <div class="grid-2cols">
+            <!-- Motorisation -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>🔧 Motorisation</h3>
+                    <div class="components-grid">
+                        <div class="comp-card">
+                            <img src="photos/Motoréducteur.png" alt="Motoréducteur 24V">
+                            <h4>Motoréducteur 24V</h4>
+                            <p>Puissance pour le convoyage</p>
+                        </div>
+                        <div class="comp-card">
+                            <img src="photos/Servomoteur.png" alt="Servomoteur">
+                            <h4>Servomoteur</h4>
+                            <p>Orientation du bras de tri</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Électronique -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>⚡ Électronique & capteurs</h3>
+                    <div class="components-grid">
+                        <div class="comp-card">
+                            <img src="photos/Adaptateur ACDC.png" alt="Adaptateur AC/DC">
+                            <h4>Adaptateur AC/DC 24V</h4>
+                        </div>
+                        <div class="comp-card">
+                            <img src="photos/Adaptateur DCDC.png" alt="Adaptateur DC/DC">
+                            <h4>Adaptateur DC/DC 5V</h4>
+                        </div>
+                        <div class="comp-card">
+                            <img src="photos/Raspberry.png" alt="Raspberry Pi 5">
+                            <h4>Raspberry Pi 5 4GB RAM</h4>
+                        </div>
+                        <div class="comp-card">
+                            <img src="photos/Capteur laser.png" alt="Capteur laser">
+                            <h4>Capteur laser</h4>
+                        </div>
+                        <div class="comp-card">
+                            <img src="photos/camera.png" alt="Caméra">
+                            <h4>Caméra</h4>
+                        </div>
+                        <div class="comp-card">
+                            <img src="photos/Pont en H.png" alt="Pont en H">
+                            <h4>Pont en H</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grille Structure / Outillage -->
+        <div class="grid-2cols">
+            <!-- Structure mécanique -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>🏗️ Structure</h3>
+                    <div class="components-grid">
+                        <div class="comp-card">
+                            <img src="photos/Barres d'aluminium.png" alt="Profilés aluminium">
+                            <h4>Profilés aluminium</h4>
+                        </div>
+                        <div class="comp-card">
+                            <img src="photos/Rouleaux.png" alt="Rouleaux">
+                            <h4>Rouleaux</h4>
+                        </div>
+                        <div class="comp-card">
+                            <img src="photos/Tapis.png" alt="Tapis">
+                            <h4>Tapis</h4>
+                        </div>
+                        <div class="comp-card">
+                            <img src="photos/Attache équerre.png" alt="Attaches en équerre">
+                            <h4>Attaches en équerre</h4>
+                        </div>
+                        <div class="comp-card">    
+                            <img src="photos/Roulements à Billes.png" alt="Roulements à billes">
+                            <h4>Roulements à billes</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outillage -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>🛠️ Outillage</h3>
+                    <div class="components-grid">
+                        <div class="comp-card">
+                            <img src="photos/Imprimante 3D.png" alt="Imprimante 3D">
+                            <h4>Imprimante 3D</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== LIENS VERS LES DOCUMENTS (placés après le matériel) ===== -->
+        <div class="card">
+            <div class="card-content">
+                <h2>Documents supplémentaires</h2>
+                <p>Retrouvez nos études :</p>
+                <ul>
+                    <li><a href="photos/Cahier de conception_convoyeur_MOLL_groupe_Mathilde.pdf">Cahier des charges fonctionnel</a></li>
+                    <li><a href="photos/CdCF Vdéf - Projet mécatronique convoyeur MOLL.pdf">Cahier de conception</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Projet Mécatronique – Icam – 2026</p>
+    </footer>
+</body>
+</html>

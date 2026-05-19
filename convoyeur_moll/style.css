@@ -1,0 +1,447 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fb;
+    color: #1e2a3a;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    background: #1e3a4d;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo a {
+    color: #ffd966;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 35px;
+    width: auto;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #ffd966;
+    text-decoration: underline;
+}
+
+/* Container principal */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Cartes et sections */
+.card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+h1, h2 {
+    color: #1e4a6b;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+    border-left: 5px solid #ffaa33;
+    padding-left: 1rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+/* Grilles */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Index image convoyeur */
+.card-content img {
+    display: block;
+    width: 60%;          /* Ajustez la taille : 60% de la largeur de la carte */
+    max-width: 400px;    /* Limite la taille maximale */
+    margin: 1.5rem auto 0 auto;  /* Centre horizontalement avec auto */
+    border-radius: 1rem;
+}
+
+/* Équipe */
+.team-member {
+    text-align: center;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 3px solid #ffd966;
+}
+
+.team-member h3 {
+    margin-bottom: 0.3rem;
+}
+
+.role {
+    color: #ff8c42;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Mise en page spéciale équipe */
+.team-leader {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.team-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Liste matériel (ancienne version) */
+.material-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.material-list li {
+    margin: 1rem 0;
+    padding-left: 1.8rem;
+    position: relative;
+}
+
+.material-list li:before {
+    content: "⚙️";
+    position: absolute;
+    left: 0;
+}
+
+/* Vidéo responsive */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 2rem 0;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ===== STYLES POUR LA PAGE MATÉRIEL ===== */
+/* Grille à deux colonnes (Motorisation / Électronique) */
+.grid-2cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Pour que les deux cartes aient la même hauteur */
+.grid-2cols .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.grid-2cols .card .card-content {
+    flex: 1;
+}
+
+/* Grille interne des composants (images + texte) */
+.components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Chaque bloc composant */
+.comp-card {
+    text-align: center;
+    background: #f9fafb;
+    padding: 0.8rem;
+    border-radius: 1rem;
+}
+
+/* Images dans les composants : dimensions fixes et centrage */
+.comp-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comp-card h4 {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+    color: #1e4a6b;
+}
+
+.comp-card p {
+    font-size: 0.75rem;
+    color: #4a627a;
+}
+
+/* ===== STYLES POUR LA PAGE CAHIER DES CHARGES ===== */
+.grid-2cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+/* Blocs pour les vidéos */
+.video-container-portrait {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.video-container-portrait video {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;   /* Hauteur maximale souhaitée (ajustable) */
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+@media (max-width: 800px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 550px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Blocs pour les images */
+.img-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+.img-card:hover {
+    transform: translateY(-3px);
+}
+.img-card img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+.img-card h3 {
+    color: #1e4a6b;
+    margin-bottom: 0.3rem;
+}
+.img-card p {
+    font-size: 0.9rem;
+    color: #4a627a;
+}
+
+/* Blocs pour les textes */
+.text-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    height: 100%;
+}
+.text-card h3 {
+    border-left: 5px solid #ffaa33;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    color: #1e4a6b;
+}
+.text-card ul {
+    margin-left: 1.5rem;
+}
+.text-card li {
+    margin: 0.5rem 0;
+}
+
+/* Responsive : sur tablette/mobile, les colonnes s'empilent */
+@media (max-width: 700px) {
+    .grid-2cols {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* ===== STYLES POUR LA PAGE DÉROULÉ & PROBLÈMES ===== */
+.problem-section {
+    margin-bottom: 3rem;
+}
+.problem-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-left: 6px solid #ffaa33;
+    padding-left: 1rem;
+    color: #1e4a6b;
+}
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+.problem-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.problem-card:hover {
+    transform: translateY(-5px);
+}
+.problem-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.problem-card-content {
+    padding: 1rem;
+    flex: 1;
+}
+.problem-card-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #1e4a6b;
+}
+.problem-card-content p {
+    font-size: 0.9rem;
+    color: #2c3e44;
+}
+
+/* Responsive : 4 -> 2 -> 1 colonne(s) */
+@media (max-width: 1000px) {
+    .problem-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .problem-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Bouton */
+.btn {
+    display: inline-block;
+    background: #ffaa33;
+    color: #1e3a4d;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #ff8c1a;
+    transform: scale(1.02);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #eef2f5;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
