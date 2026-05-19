@@ -605,11 +605,45 @@
             border: 2px solid var(--secondary);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
+.back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  background: white;
+  color: #1a1a18;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  border: 1px solid #e8e4df;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  transform: translateX(-3px);
+  background: #fff4e6;
+  border-color: #F7941D;
+  color: #F7941D;
+}
+         
     </style>
 </head>
 <body>
 
 <header> 
+<a href="../page22.html" class="back-btn">← Retour</a>
     <h1>Le projet mécatronique : AGV 2026</h1>
     <p>Transport & contrôle de pièces aéronautiques – Projet Mécatronique 2025-2026</p>
 </header>
