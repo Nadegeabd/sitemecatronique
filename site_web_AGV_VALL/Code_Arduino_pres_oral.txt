@@ -1,0 +1,163 @@
+// ============================================================
+// AGV Robot 4 roues omnidirectionnelles - ROS 2 Nav 2 Serial Bridge
+// ============================================================
+
+
+// ============================================================
+// Moteurs
+// ============================================================
+
+// --- Motor Back-Right (BR) --- // --- Moteur Arrière-Droit (ArD) --- // BK1
+const int en_BR = 7;  const int in1_BR = 6;  const int in2_BR = 5; 
+// --- Motor Back-Left (BL) --- // --- Moteur Arrière-Gauche (ArG) --- // AK1 
+const int en_BL = 13; const int in3_BL = 12; const int in4_BL = 11;
+// --- Motor Front-Right (FR) --- // --- Moteur Avant-Droit (AD) --- // BK4
+const int en_FR = 2;  const int in5_FR = 4;  const int in6_FR = 3;
+// --- Motor Front-Left (FL) --- // --- Moteur Avant-Gauche (AG) --- // AK4
+const int en_FL = 8;  const int in7_FL = 10; const int in8_FL = 9;
+
+// ============================================================
+// Encodeurs
+// ============================================================
+
+const int encodeur_BR_A = 18;  
+const int encodeur_BR_B = 22;  
+const int encodeur_BL_A = 19;  
+const int encodeur_BL_B = 23;  
+const int encodeur_FR_A = 20;
+const int encodeur_FR_B = 24;
+const int encodeur_FL_A = 21;
+const int encodeur_FL_B = 25;
+
+volatile long pulseAG  = 0;
+volatile long pulseAD  = 0;
+volatile long pulseArG = 0;
+volatile long pulseArD = 0;
+
+// --- Encoder Master (Front-Left) ---
+volatile long master_ticks = 0;
+void countFL() { master_ticks++; }
+
+void setup() {
+  Serial.begin(115200);
+
+  // Manually set every pin mode
+  pinMode(en_BR, OUTPUT);  pinMode(in1_BR, OUTPUT);  pinMode(in2_BR, OUTPUT);
+  pinMode(en_BL, OUTPUT);  pinMode(in3_BL, OUTPUT);  pinMode(in4_BL, OUTPUT);
+  pinMode(en_FR, OUTPUT);  pinMode(in5_FR, OUTPUT);  pinMode(in6_FR, OUTPUT);
+  pinMode(en_FL, OUTPUT);  pinMode(in7_FL, OUTPUT);  pinMode(in8_FL, OUTPUT);
+
+  // Encoder Interrupt
+  pinMode(18, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(18), countFL, RISING);
+}
+
+// ============================================================
+// Dedicated Drive Functions
+// ============================================================
+
+void drive_BR(int pwm) {
+  pwm = constrain(pwm, -255, 255);
+  if (pwm > 0) { 
+    digitalWrite(in1_BR, HIGH); 
+    digitalWrite(in2_BR, LOW);  
+    analogWrite(en_BR, pwm); 
+    }
+  else if (pwm < 0) { 
+    digitalWrite(in1_BR, LOW);  
+    digitalWrite(in2_BR, HIGH); 
+    analogWrite(en_BR, -pwm); 
+    }
+  else { 
+    digitalWrite(in1_BR, LOW);  
+    digitalWrite(in2_BR, LOW);  
+    analogWrite(en_BR, 0); 
+  }
+}
+
+void drive_BL(int pwm) {
+  pwm = -pwm; // Standard inversion
+  pwm = constrain(pwm, -255, 255);
+  if (pwm > 0) { 
+    digitalWrite(in3_BL, HIGH); 
+    digitalWrite(in4_BL, LOW);  
+    analogWrite(en_BL, pwm); 
+    }
+  else if (pwm < 0) { 
+    digitalWrite(in3_BL, LOW);  
+    digitalWrite(in4_BL, HIGH); 
+    analogWrite(en_BL, -pwm); 
+    }
+  else { 
+    digitalWrite(in3_BL, LOW);  
+    digitalWrite(in4_BL, LOW);  
+    analogWrite(en_BL, 0); 
+    }
+}
+
+void drive_FR(int pwm) {
+  pwm = -pwm; // Standard inversion
+  pwm = constrain(pwm, -255, 255);
+  if (pwm > 0) { 
+    digitalWrite(in5_FR, HIGH); 
+    digitalWrite(in6_FR, LOW);  
+    analogWrite(en_FR, pwm); 
+    }
+  else if (pwm < 0) { 
+    digitalWrite(in5_FR, LOW);  
+    digitalWrite(in6_FR, HIGH); 
+    analogWrite(en_FR, -pwm); 
+    }
+  else { 
+    digitalWrite(in5_FR, LOW);  
+    digitalWrite(in6_FR, LOW);  
+    analogWrite(en_FR, 0); 
+  }
+}
+
+void drive_FL(int pwm) {
+  pwm = constrain(pwm, -255, 255);
+  if (pwm > 0) { 
+    digitalWrite(in7_FL, HIGH); 
+    digitalWrite(in8_FL, LOW);  
+    analogWrite(en_FL, pwm); 
+    }
+  else if (pwm < 0) { 
+    digitalWrite(in7_FL, LOW);  
+    digitalWrite(in8_FL, HIGH); 
+    analogWrite(en_FL, -pwm); 
+    }
+  else { 
+    digitalWrite(in7_FL, LOW);  
+    digitalWrite(in7_FL, LOW); 
+    analogWrite(en_FL, 0); 
+    }
+}
+
+// ============================================================
+// Main Loop
+// ============================================================
+
+void loop() {
+  if (Serial.available() > 0) {
+    // Read 4 values without using any lists or loops
+    int val_raspi_BR = Serial.parseInt();
+    int val_raspi_BL = Serial.parseInt();
+    int val_raspi_FR = Serial.parseInt();
+    int val_raspi_FL = Serial.parseInt();
+
+    if (Serial.read() == '\n') {
+      drive_BR(val_raspi_BR); //BR
+      drive_BL(val_raspi_BL); //BL
+      drive_FR(val_raspi_FR); //FR
+      drive_FL(val_raspi_FL); //FL
+    }
+  }
+
+  // Report the master encoder count to the Raspberry Pi
+  static unsigned long lastReport = 0;
+  if (millis() - lastReport > 50) {
+    Serial.println(master_ticks);
+    lastReport = millis();
+  }
+}
