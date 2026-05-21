@@ -177,6 +177,38 @@
       .section-block { grid-template-columns: 1fr !important; }
       .section-side-img { height: 250px; }
     }
+          .back-btn {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  z-index: 999;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  background: white;
+  color: #1a1a18;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  border: 1px solid #e8e4df;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  transform: translateX(-3px);
+  background: #fff4e6;
+  border-color: #F7941D;
+  color: #F7941D;
+}
   </style>
 </head>
 <body>
@@ -191,7 +223,7 @@
       <a href="demonstration.html">Problèmes</a>
     </nav>
   </header>
-
+<a href="../page22.html" class="back-btn">← Retour</a>
   <section class="hero-centered">
     <div class="hero-content">
       <div class="hero-tag">Projet Mécatronique · 2025–2026</div>
