@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spécifications - AGV VALL</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>AGV VALL</h1>
+    </header>
+
+    <!-- Barre de navigation horizontale (identique sur toutes les pages) -->
+    <nav>
+        <ul>
+            <li><a href="agv.html">Accueil</a></li>
+            <li><a href="demarche.html">Démarche suivi</a></li>
+            <li><a href="choix.html">Choix techniques</a></li>
+            <li><a href="résultat.html" class="active">Résultats obtenus</a></li>
+            <li><a href="difficultés.html">Difficultés rencontrées</a></li>
+            <li><a href="avancement.html">Avancement</a></li>
+            <li><a href="cdc.html">Cahier des Charges</a></li>
+            <li><a href="cdecon.html">Cahier de Conception</a></li>
+            <li><a href="Code.html">Code</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Résultats obtenus</h2>
+            
+            <h3>Performances atteintes</h3>
+            <table>
+                <tr><th>Critère</th><th>Objectif</th><th>Résultat obtenu</th><th>Statut</th></tr>
+                <tr><td>Capacité de charge</th><td>5 kg</th><td>5 kg</th><td style="color:green;"> Validé</th></tr>
+                <tr><td>Vitesse de croisière</th><td>0.5 m/s</th><td>0.5 m/s</th><td style="color:green;"> Validé</th></tr>
+                <tr><td>Autonomie</th><td>30 min</th><td>30 min</th><td style="color:green;"> Validé</th></tr>
+                <tr><td>Détection d'obstacles</th><td>100%</th><td></th><td style="color:green;"> Validé</th></tr>
+            </table>
+            
+            <!-- 3 vidéos côte à côte -->
+            <h3>Notre AGV en action</h3>
+            <div style="display: flex; flex-direction: row; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 20px 0;">
+                
+                <!-- Vidéo 1 -->
+                <video width="30%" min-width="200px" controls autoplay muted style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                    <source src="robotRoule.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+                
+                <!-- Vidéo 2 -->
+                <video width="30%" min-width="200px" controls autoplay muted style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                    <source src="robotRoule1.mov" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+                
+                <!-- Vidéo 3 -->
+                <video width="30%" min-width="200px" controls autoplay muted style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                    <source src="robotRoule2.mov" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+            <p style="text-align: center; color: #555;">Démonstration de notre AGV VALL en déplacement, navigation et évitement d'obstacles</p>
+
+            <h3>Livrables réalisés</h3>
+            <ul style="margin-left: 20px;">
+                <li>Cahier des charges</li>
+                <li>Cahier de conception technique</li>
+                <li>Modélisation 3D du châssis (SolidWorks)</li>
+                <li>Code source (ROS + Arduino)</li>
+                <li>Site web de présentation du projet</li>
+            </ul>
+
+            <h3>Ce que nous avons appris</h3>
+            <p>Ce projet nous a permis de développer des compétences techniques variées en robotique, en programmation embarquée, en modélisation CAO ainsi qu’en gestion de projet. Il nous a également confrontés à des défis à la fois techniques et humains : nous avons dû apprendre à résoudre des problèmes liés aux composants, à l’intégration des systèmes, mais aussi à la dynamique de groupe. Travailler ensemble efficacement, savoir s'écouter et trouver des compromis ont été tout aussi essentiels que la maîtrise technique pour mener ce projet à bien.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Projet AGV VALL</p>
+    </footer>
+</body>
+</html>
