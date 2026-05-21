@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livrables – AGV VAT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --orange: #ff7300;
+      --orange-dim: rgba(255,115,0,0.1);
+      --noir: #0d0d0d;
+      --blanc: #ffffff;
+      --gris: #a0a0a0;
+      --gris-fond: #f9f9f9;
+      --gris-clair: #f1f1f1;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--blanc);
+      color: var(--noir);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER (Standardisé) ── */
+    header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(13, 13, 13, 0.92); /* Noir transparent */
+  backdrop-filter: blur(10px);
+  padding: 16px 40px; /* C'est ce réglage qui définit la hauteur */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  border-bottom: 1px solid rgba(255, 115, 0, 0.15); /* Fine ligne orange */
+  height: 70px; /* Optionnel : force une hauteur fixe si tu veux être sûr à 100% */
+}
+
+    header h1 {
+      font-family: "Barlow Condensed", sans-serif;
+      color: var(--orange);
+      font-size: 1.9em;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.75);
+      margin-left: 28px;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    nav a:hover { color: var(--orange); }
+
+    /* ── CONTENU ── */
+    main {
+      padding: 140px 40px 80px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(2.5em, 5vw, 3.5em);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      font-size: 1.15em;
+      color: #555;
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
+    }
+
+    /* ── CARTES DOCUMENTS ── */
+    .document-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .document-card {
+      background: var(--gris-fond);
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .document-card:hover {
+      transform: translateX(10px);
+      background: var(--blanc);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border-color: var(--orange);
+    }
+
+    .document-info {
+      flex: 1;
+    }
+
+    .document-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 1.6em;
+      color: var(--noir);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── BOUTONS ── */
+    .doc-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      background: var(--noir);
+      color: var(--blanc);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .document-card:hover .doc-link {
+      background: var(--orange);
+      box-shadow: 0 4px 15px var(--orange-dim);
+    }
+
+    footer {
+      background: var(--noir);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 28px;
+      font-size: 0.9em;
+      letter-spacing: 0.05em;
+      margin-top: 80px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      header { padding: 14px 20px; }
+      nav a { margin-left: 14px; font-size: 0.75em; }
+      main { padding: 120px 20px 60px; }
+      
+      .document-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      
+      .doc-link { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AGV VAT</h1>
+    <nav>
+      <a href="Accueil.html">Accueil</a>
+      <a href="livrable.html">Livrable</a>
+      <a href="chassis.html">Châssis</a>
+      <a href="electronique.html">Électronique</a>
+      <a href="demonstration.html">Problèmes</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Livrables</h2>
+    
+    <p class="intro-text">
+      Retrouvez l'ensemble de la documentation technique et stratégique liée au développement de notre AGV autonome.
+    </p>
+
+    <div class="document-grid">
+      <div class="document-card">
+        <div class="document-info">
+          <h4 class="document-title">Cahier des Charges</h4>
+        </div>
+        <a href="../documents/Charge.pdf" class="doc-link" target="_blank">Consulter le PDF</a>
+      </div>
+
+      <div class="document-card">
+        <div class="document-info">
+          <h4 class="document-title">Cahier de Conception</h4>
+        </div>
+        <a href="../documents/Conception.pdf" class="doc-link" target="_blank">Consulter le PDF</a>
+      </div>
+
+      <div class="document-card">
+        <div class="document-info">
+          <h4 class="document-title">Analyse de cycle de vie</h4>
+        </div>
+        <a href="../documents/ACV.pdf" class="doc-link" target="_blank">Consulter le PDF</a>
+      </div>
+
+      <div class="document-card">
+        <div class="document-info">
+          <h4 class="document-title">Présentation Initiale</h4>
+        </div>
+        <a href="../documents/1soutenance.pptx" class="doc-link" target="_blank">Voir Slides</a>
+      </div>
+
+      <div class="document-card">
+        <div class="document-info">
+          <h4 class="document-title">Présentation Intermédiaire</h4>
+        </div>
+        <a href="../documents/2soutenance.pptx" class="doc-link" target="_blank">Voir Slides</a>
+      </div>
+
+      <div class="document-card">
+        <div class="document-info">
+          <h4 class="document-title">Profil d'Équipe</h4>
+        </div>
+        <a href="../documents/Equipe.pdf" class="doc-link" target="_blank">Consulter le Doc</a>
+      </div>
+      <div class="document-card">
+        <div class="document-info">
+          <h4 class="document-title">Plan d'Action</h4>
+        </div>
+        <a href="../documents/Action.pdf" class="doc-link" target="_blank">Consulter le Doc</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    2025–2026 · AGV VAT · Projet Mécatronique
+  </footer>
+
+</body>
+</html>

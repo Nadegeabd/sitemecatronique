@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code – AGV VAT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --orange: #ff7300;
+      --orange-dim: rgba(255,115,0,0.1);
+      --noir: #0d0d0d;
+      --blanc: #ffffff;
+      --gris: #a0a0a0;
+      --gris-fond: #f9f9f9;
+    }
+ 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--blanc);
+      color: var(--noir);
+      overflow-x: hidden;
+    }
+ 
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(13, 13, 13, 0.92);
+      backdrop-filter: blur(10px);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9999;
+      border-bottom: 1px solid rgba(255, 115, 0, 0.15);
+      height: 70px;
+    }
+ 
+    header h1 {
+      font-family: "Barlow Condensed", sans-serif;
+      color: var(--orange);
+      font-size: 1.9em;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+ 
+    nav a {
+      color: rgba(255,255,255,0.75);
+      margin-left: 28px;
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    nav a:hover { color: var(--orange); }
+ 
+    /* ── CONTENU PRINCIPAL ── */
+    main {
+      padding: 130px 40px 100px;
+      max-width: 1400px;
+      margin: auto;
+      text-align: center;
+      min-height: 80vh;
+    }
+ 
+    h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(2.5em, 6vw, 4em);
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+ 
+    .subtitle {
+      font-size: 1.2em;
+      color: var(--gris);
+      margin-bottom: 60px;
+      font-weight: 300;
+    }
+ 
+    /* ── SECTION PROBLÈMES ── */
+    .problems-section {
+      margin-bottom: 60px;
+      text-align: left;
+    }
+ 
+    .problems-header {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 2em;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--noir);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+ 
+    .problems-header::before,
+    .problems-header::after {
+      content: "";
+      height: 3px;
+      width: 40px;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+ 
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+ 
+    .problem-card {
+      background: var(--gris-fond);
+      border: 2px solid var(--orange);
+      border-radius: 14px;
+      padding: 50px 32px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+ 
+    .problem-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(255, 115, 0, 0.12);
+    }
+ 
+    .problem-number {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 2.6em;
+      font-weight: 800;
+      color: var(--orange);
+      opacity: 0.2;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+ 
+    .problem-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 1.5em;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--noir);
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+ 
+    .problem-desc {
+      font-size: 1.05em;
+      color: var(--noir);
+      line-height: 1.6;
+      font-weight: 600;
+    }
+ 
+    /* ── SECTION TRAVAUX ── */
+    .status-container {
+      background: var(--gris-fond);
+      border-radius: 24px;
+      padding: 60px 20px;
+      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+ 
+    .image-container {
+      max-width: 500px;
+      margin: 0 auto 30px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      border: 1px solid var(--orange-dim);
+    }
+ 
+    .travaux-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+ 
+    .status-container:hover .travaux-image {
+      transform: scale(1.05);
+    }
+ 
+    .section-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 2.2em;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--noir);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+ 
+    .section-title::before, .section-title::after {
+      content: "";
+      height: 3px;
+      width: 40px;
+      background: var(--orange);
+    }
+ 
+    .description {
+      margin-top: 20px;
+      color: #666;
+      font-size: 1.1em;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+ 
+    /* ── FOOTER ── */
+    footer {
+      background: var(--noir);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 28px;
+      font-size: 0.9em;
+      letter-spacing: 0.05em;
+    }
+ 
+    /* ── ANIMATION ── */
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+ 
+    .status-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: var(--orange);
+      border-radius: 50%;
+      margin-right: 10px;
+      animation: pulse 1.5s infinite;
+    }
+ 
+    @media (max-width: 768px) {
+      header { padding: 14px 20px; }
+      nav a { margin-left: 14px; font-size: 0.75em; }
+      main { padding: 100px 20px 60px; }
+      .problems-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+ 
+  <header>
+    <h1>AGV VAT</h1>
+    <nav>
+      <a href="Accueil.html">Accueil</a>
+      <a href="livrable.html">Livrable</a>
+      <a href="chassis.html">Châssis</a>
+      <a href="electronique.html">Électronique</a>
+      <a href="demonstration.html">Problèmes</a>
+    </nav>
+  </header>
+ 
+  <main>
+    
+ 
+    <!-- ── SECTION 6 PROBLÈMES ── -->
+    <section class="problems-section">
+      <h3 class="problems-header">Problèmes rencontrés</h3>
+      <div class="problems-grid">
+ 
+        <div class="problem-card">
+          <div class="problem-number">01</div>
+          <div class="problem-title">Livraisons des Moteurs</div>
+          <p class="problem-desc">Les moteurs demandés au premier semestre ne sont jamais arrivé. Nous avons donc été contraint de prendre des moteurs disponibles au magasins ICAM qui ne correspondaient pas à ce que nous avions choisi.</p>
+        </div>
+ 
+        <div class="problem-card">
+          <div class="problem-number">02</div>
+          <div class="problem-title">Intégration Roue Folle</div>
+          <p class="problem-desc">La roue folle que nous voulions utiliser n'était pas disponible et nous avions été contraint d'utiliser une roue de chaise qui n'est pas vraiment adapter à ce type de robot.</p>
+        </div>
+ 
+        <div class="problem-card">
+          <div class="problem-number">03</div>
+          <div class="problem-title">IMU Defectueux</div>
+          <p class="problem-desc">Notre IMU initial a été abimé suite à une erreur de manipulation ce qui nous a obligé à en utiliser un moins précis.</p>
+        </div>
+ 
+        <div class="problem-card">
+          <div class="problem-number">04</div>
+          <div class="problem-title">Problème Moteur</div>
+          <p class="problem-desc">L'un des 2 moteurs tournait plus vite que l'autre en recevant la même tension.</p>
+        </div>
+ 
+        <div class="problem-card">
+          <div class="problem-number">05</div>
+          <div class="problem-title">Problèmes Lidar</div>
+          <p class="problem-desc">Le Lidar avait des problèmes de connection avec le reste du système en affichant des erreurs.</p>
+        </div>
+
+        <div class="problem-card">
+          <div class="problem-number">06</div>
+          <div class="problem-title">Problèmes Navigations</div>
+          <p class="problem-desc">Nous avons fait face à divers problèmes pour atteindre la partie navigation pour notre projet.</p>
+        </div>
+ 
+        
+ 
+      </div>
+    </section>
+    
+    </div>
+ 
+  </main>
+ 
+  <footer>
+    2025–2026 · AGV VAT · Projet Mécatronique
+  </footer>
+ 
+</body>
+</html>

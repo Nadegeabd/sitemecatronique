@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGV VAT - Accueil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;600;800&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #ff7300;
+      --noir: #0d0d0d;
+      --blanc: #ffffff;
+      --gris-clair: #f5f5f5;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--blanc);
+      color: var(--noir);
+      overflow-x: hidden;
+    }
+
+    header {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 16px 40px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  border-bottom: 1px solid rgba(255, 115, 0, 0.15);
+  height: 70px;
+}
+
+    header h1 {
+      font-family: "Barlow Condensed", sans-serif;
+      color: var(--orange);
+      font-size: 1.9em;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    nav a { color: rgba(255,255,255,0.75); margin-left: 28px; text-decoration: none; font-size: 0.9em; font-weight: 600; text-transform: uppercase; transition: 0.25s; }
+    nav a:hover { color: var(--orange); }
+
+    
+    .hero-centered {
+      min-height: 100vh;
+      background: var(--noir);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 40px 80px 40px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin-bottom: 60px;
+    }
+
+    .hero-tag {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 0.8em;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-bottom: 15px;
+    }
+
+    .hero-title-big {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(4em, 12vw, 9em);
+      font-weight: 800;
+      color: var(--blanc);
+      text-transform: uppercase;
+      line-height: 0.85;
+      margin: 10px 0;
+    }
+
+    .hero-title-big span { color: var(--orange); }
+
+    .hero-desc-center {
+      font-size: 1.1em;
+      color: rgba(255,255,255,0.5);
+      max-width: 750px;
+      margin: 20px auto 0 auto;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* Grille pour les 3 images du haut */
+    .hero-images-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .hero-img-card {
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,115,0,0.2);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .hero-img-card:hover {
+      transform: translateY(-12px);
+      border-color: var(--orange);
+      box-shadow: 0 15px 30px rgba(255, 115, 0, 0.15);
+    }
+
+    .hero-img-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    
+    .sections { padding: 100px 40px; background: var(--blanc); }
+    .sections-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 120px; }
+
+   
+    .section-block { display: grid; grid-template-columns: 300px 1fr; gap: 60px; align-items: start; }
+
+    .section-label { display: flex; flex-direction: column; gap: 10px; }
+    .section-num { font-family: "Barlow Condensed", sans-serif; font-size: 5.5em; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(255,115,0,0.25); }
+    .section-tag { font-family: "Barlow Condensed", sans-serif; font-size: 0.85em; font-weight: 600; color: var(--orange); text-transform: uppercase; letter-spacing: 0.2em; }
+
+    
+    .section-side-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-top: 15px;
+      border: 1px solid var(--gris-clair);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .section-content h3 { font-family: "Barlow Condensed", sans-serif; font-size: 2.4em; font-weight: 800; text-transform: uppercase; margin-bottom: 25px; position: relative; }
+    .section-content h3::before { content: ''; display: block; width: 40px; height: 3px; background: var(--orange); margin-bottom: 15px; }
+    .section-content p { font-size: 1.05em; line-height: 1.8; color: #444; font-weight: 300; margin-bottom: 20px; }
+
+    
+    .objectives-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 30px; }
+    .obj-card { background: var(--gris-clair); border-radius: 14px; padding: 22px; border: 2px solid var(--orange); transition: 0.3s; }
+    .obj-card:hover { transform: translateY(-5px); }
+    .obj-card h4 { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; font-size: 1.1em; margin-bottom: 8px; color: var(--noir); }
+    .obj-card p { font-size: 0.9em !important; color: #666 !important; line-height: 1.5 !important; margin-bottom: 0 !important; }
+
+    
+    .steps { display: flex; flex-direction: column; margin-top: 30px; }
+    .step { display: flex; gap: 20px; padding-bottom: 30px; position: relative; }
+    .step:not(:last-child)::after {
+      content: ''; position: absolute; left: 19px; top: 40px; width: 2px; height: calc(100% - 20px);
+      background: linear-gradient(to bottom, var(--orange), rgba(255,115,0,0.1));
+    }
+    .step-dot { width: 40px; height: 40px; background: var(--orange); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; font-family: "Barlow Condensed"; }
+    .step-text h4 { font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; font-size: 1.15em; margin-bottom: 5px; color: var(--noir); }
+    .step-text p { font-size: 0.95em !important; color: #555 !important; line-height: 1.6 !important; margin-bottom: 0 !important; }
+
+    .divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,115,0,0.2), transparent); }
+
+    footer { background: var(--noir); color: rgba(255,255,255,0.5); text-align: center; padding: 40px; font-size: 0.9em; }
+
+    @media (max-width: 900px) {
+      .hero-images-grid { grid-template-columns: 1fr; gap: 15px; }
+      .section-block { grid-template-columns: 1fr !important; }
+      .section-side-img { height: 250px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AGV VAT</h1>
+    <nav>
+      <a href="Accueil.html">Accueil</a>
+      <a href="livrable.html">Livrable</a>
+      <a href="chassis.html">Châssis</a>
+      <a href="electronique.html">Électronique</a>
+      <a href="demonstration.html">Problèmes</a>
+    </nav>
+  </header>
+
+  <section class="hero-centered">
+    <div class="hero-content">
+      <div class="hero-tag">Projet Mécatronique · 2025–2026</div>
+      <h2 class="hero-title-big">AGV <span>VAT</span></h2>
+      <p class="hero-desc-center">
+        Le nouvel AGV permettant de relier une zone de stockage à une zone de production facilement
+      </p>
+    </div>
+    
+    <div class="hero-images-grid">
+      <div class="hero-img-card">
+        <img src="../Image/robot.jpg" alt="Robot AGV 1">
+      </div>
+      <div class="hero-img-card">
+        <img src="../Image/robot2.jpg" alt="Robot AGV 2">
+      </div>
+      <div class="hero-img-card">
+        <img src="../Image/robot3.jpg" alt="Robot AGV 3">
+      </div>
+    </div>
+  </section>
+<!-- SECTION ÉQUIPE -->
+<section style="background: var(--gris-clair); padding: 70px 40px; text-align: center;">
+  <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 0.8em; color: var(--orange); text-transform: uppercase; letter-spacing: 0.3em; margin-bottom: 40px;">
+    L'équipe
+  </div>
+  <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 900px; margin: 0 auto;">
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;">
+      <img src="../Image/esteban.png" alt="Prénom 1" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid var(--orange);">
+      <span style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.2em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Esteban Loiseau--Cerillo</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;">
+      <img src="../Image/emilien.png" alt="Prénom 2" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid var(--orange);">
+      <span style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.2em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Emilien Lavy</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;">
+      <img src="../Image/noa.png" alt="Prénom 3" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid var(--orange);">
+      <span style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.2em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Noa Massin</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 14px;">
+      <img src="../Image/alexandre.png" alt="Prénom 4" style="width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid var(--orange);">
+      <span style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.2em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Alexandre Petel</span>
+    </div>
+
+  </div>
+</section>
+  <div class="sections">
+    <div class="sections-inner">
+
+      <div class="section-block">
+        <div class="section-label">
+          <span class="section-num">01</span>
+          <span class="section-tag">Contexte</span>
+          <img src="../Image/contexte.jpg" alt="Contexte" class="section-side-img">
+        </div>
+        <div class="section-content">
+          <h3>Pourquoi ce projet ?</h3>
+          <p>
+            Dans le cadre de notre projet mécatronique, nous avons été sélectionné pour concevoir et réaliser un AGV fonctionnel pouvant relier une zone de stockage à une zone de production en transportant des objets de moins de 5 Kg. Ces robots autonomes sont aujourd'hui au cœur de l'industrie 4.0 et ils assurent la logistique interne dans des entrepôts ou des usines . Notre projet vise à reproduire à petite échelle cette problématique industrielle réelle en démontrant nos compétences de futurs ingénieurs.
+          </p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-block">
+        <div class="section-label">
+          <span class="section-num">02</span>
+          <span class="section-tag">Objectifs</span>
+          <img src="../Image/objectifs.jpg" alt="Objectifs" class="section-side-img">
+        </div>
+        <div class="section-content">
+          <h3>Ce que l'on cherche à atteindre</h3>
+          <p>
+            Le projet s'articule autour de 3 grands objectifs techniques et pédagogiques couvrant l'ensemble de la chaîne de conception d'un système mécatronique complet.
+          </p>
+          <div class="objectives-grid">
+            <div class="obj-card">
+              <h4>Châssis sur mesure</h4>
+              <p>Concevoir et fabriquer une structure mécanique robuste adaptée aux contraintes du robot.</p>
+            </div>
+            <div class="obj-card">
+              <h4>Électronique embarquée</h4>
+              <p>Intégrer les capteurs, les actionneurs et les cartes de commande dans un système cohérent.</p>
+            </div>
+            <div class="obj-card">
+              <h4>Navigation autonome</h4>
+              <p>Permettre au robot de se déplacer sans intervention humaine grâce au LiDAR.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-block">
+        <div class="section-label">
+          <span class="section-num">03</span>
+          <span class="section-tag">Démarche</span>
+          <img src="../Image/démarche.jpg" alt="Démarche" class="section-side-img">
+        </div>
+        <div class="section-content">
+          <h3>Comment avons nous procédé</h3>   
+          <div class="steps">
+            <div class="step">
+              <div class="step-dot">1</div>
+              <div class="step-text">
+                <h4>Cahier des charges</h4>
+                <p>Analyse du besoin, définition des contraintes fonctionnelles principales et secondaires en respectant le budget de 1500€.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-dot">2</div>
+              <div class="step-text">
+                <h4>Conception mécanique</h4>
+                <p>Modélisation 3D du châssis sous CAO avec le choix des composants électroniques de la partie motricité jusqu'à la navigation autonome.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-dot">3</div>
+              <div class="step-text">
+                <h4>Construction du robot</h4>
+                <p>Montage du chassis avant d'y installer les composants électronniques et le reste</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-dot">4</div>
+              <div class="step-text">
+                <h4>Développement logiciel</h4>
+                <p>Implémentation des algorithmes de navigation, gestion de l'évitement d'obstacles et fusion de données.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-dot">5</div>
+              <div class="step-text">
+                <h4>Tests & Validation</h4>
+                <p>Mise en situation réelle, mesures de précision du guidage et corrections itératives pour la performance finale.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    2025–2026 · AGV VAT · Projet Mécatronique
+  </footer>
+
+</body>
+</html>
