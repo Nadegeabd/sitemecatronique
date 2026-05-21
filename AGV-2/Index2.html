@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Convoyeur — Projet mécatronique ICAM 2026</title>
+  <meta name="description" content="Présentation technique d'un convoyeur mécatronique — conception, fonctionnement, analyses et durabilité. Projet ICAM Paris 2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+
+  <!-- ▸ LOADER -->
+  <div id="loader" class="loader">
+    <div class="loader__bar"></div>
+    <span class="loader__label">Initialisation du système…</span>
+  </div>
+
+  <!-- ▸ HEADER -->
+  <header class="site-header" id="siteHeader">
+    <a class="logo" href="#hero">
+      <span class="logo__icon">⬡</span>
+      <span>Convoyeur</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <ul class="nav__list" id="navMenu">
+        <li><a href="#projet">Projet</a></li>
+        <li><a href="#fonctionnement">Fonctionnement</a></li>
+        <li><a href="#analyse">Analyse</a></li>
+        <li><a href="#durabilite">Durabilité</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="dossiers.html">Dossiers techniques</a></li>
+        <li><a href="#equipe">Équipe</a></li>
+        <li>
+          <button id="themeToggle" class="theme-btn" aria-label="Basculer thème">
+            <span class="theme-btn__icon">◐</span>
+          </button>
+        </li>
+      </ul>
+      <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ▸ HERO -->
+  <section id="hero" class="hero">
+    <div class="hero__bg">
+      <div class="grid-overlay"></div>
+      <div class="hero__glow hero__glow--1"></div>
+      <div class="hero__glow hero__glow--2"></div>
+    </div>
+    <div class="hero__inner">
+      <div class="hero__content reveal">
+        <div class="hero__badge">
+          <span class="badge-dot"></span>
+          Projet Mécatronique — 2026
+        </div>
+        <h1 class="hero__title">
+          <span class="hero__title--line">Convoyeur</span>
+          <span class="hero__title--line hero__title--accent">S.I.N.G.E.</span>
+        </h1>
+        <em class="hero__subtitle">Système Industriel de Nouvelle Génération Embarqué</em>
+        <p class="hero__desc">Conception, démonstration et analyse d'un convoyeur 1 m × 30 cm, charge max <strong>1 kg</strong>. Intégration mécanique, électronique.</p>
+        <div class="hero__specs">
+          <div class="spec-pill"><span class="spec-pill__val">1 m</span><span class="spec-pill__lbl">Longueur</span></div>
+          <div class="spec-pill"><span class="spec-pill__val">1 kg</span><span class="spec-pill__lbl">Charge max</span></div>
+          <div class="spec-pill"><span class="spec-pill__val">5 cm/s</span><span class="spec-pill__lbl">Vitesse max</span></div>
+          <div class="spec-pill"><span class="spec-pill__val">12-24V</span><span class="spec-pill__lbl">Alim.</span></div>
+        </div>
+        <div class="hero__ctas">
+          <a href="#fonctionnement" class="btn btn--primary">Découvrir →</a>
+          <a href="#analyse" class="btn btn--outline">Analyse technique</a>
+        </div>
+      </div>
+      <figure class="hero__visual reveal reveal--delay">
+        <div class="hero__img-frame">
+          <img src="image/convoyeur_head.jpeg" alt="Convoyeur mécatronique" />
+          </div>
+        </div>
+      </figure>
+    </div>
+    <a href="#projet" class="hero__scroll" aria-label="Faire défiler">
+      <span class="scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ▸ PROJET -->
+  <section id="projet" class="section">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag mono">01 — Contexte</span>
+        <h2>Le Projet</h2>
+      </div>
+      <div class="projet-grid reveal">
+        <div class="projet-context">
+          <h3>Contexte & Objectifs</h3>
+          <p>Projet étudiant avec la mise en pratique des compétences en conception mécatronique, électronique avec l'intégration d'Arduino.</p>
+          <ul class="check-list">
+            <li>Démontrer la fiabilité, la sécurité et la performance du système</li>
+            <li>Produire un dossier technique complet</li>
+            <li>Présenter la démarche d'éco-conception (ACV)</li>
+            <li>Réaliser une démonstration physique fonctionnelle</li>
+          </ul>
+        </div>
+        <div class="specs-table">
+          <div class="specs-table__header">
+            <span class="mono">CAHIER DES CHARGES</span>
+          </div>
+          <div class="specs-table__body">
+            <div class="spec-row"><span>Dimensions</span><span class="mono accent">1 m × 30 cm</span></div>
+            <div class="spec-row"><span>Charge maximale</span><span class="mono accent">1 kg</span></div>
+            <div class="spec-row"><span>Vitesse cible</span><span class="mono accent">5 – 10 cm/s</span></div>
+            <div class="spec-row"><span>Alimentation</span><span class="mono accent">2 X 12 V DC</span></div>
+            <div class="spec-row"><span>Bruit max</span><span class="mono accent">&lt; 60 dB</span></div>
+            <div class="spec-row"><span>Budget max</span><span class="mono accent">&lt; 400€</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▸ FONCTIONNEMENT -->
+  <section id="fonctionnement" class="section section--dark">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag mono">02 — Architecture</span>
+        <h2>Fonctionnement</h2>
+      </div>
+      <p class="section__intro reveal">Le convoyeur intègre quatre sous-systèmes interdépendants : motorisation, structure, détection et contrôle. Chaque composant a été sélectionné pour ses performances et sa disponibilité.</p>
+
+      <div class="components-grid reveal">
+
+        <div class="comp-card comp-card--contain">
+          <div class="comp-card__img">
+            <img src="image/moteur.jpg" alt="Moteur CC 12V" />
+            <div class="comp-card__num mono">01</div>
+          </div>
+          <div class="comp-card__body">
+            <h3>Moteur CC</h3>
+            <p>Moteur à courant continu 12 V, couple suffisant avec marge 20–30 % pour les charges nominales. Piloté via pont-H.</p>
+            <div class="comp-tags">
+              <span>12 V DC</span><span>Couple ↑</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card__img">
+            <img src="image/rouleaux.jpg" alt="Rouleaux" />
+            <div class="comp-card__num mono">02</div>
+          </div>
+          <div class="comp-card__body">
+            <h3>Rouleaux</h3>
+            <p>Rouleaux sur roulements à billes pour minimiser les frottements. Dimensionnés pour une flèche &lt; 2 mm sous charge max.</p>
+            <div class="comp-tags">
+              <span>Roulements</span><span>Acier</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card__img">
+            <img src="image/capteur.jpg" alt="Capteur QR Code" />
+            <div class="comp-card__num mono">03</div>
+          </div>
+          <div class="comp-card__body">
+            <h3>Capteur</h3>
+            <p>Capteur de lecture QR Code pour identification des objets transportés. Permet un tri et un suivi automatisé.</p>
+            <div class="comp-tags">
+              <span>QR Code</span><span>UART</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card__img">
+            <img src="image/arduino.jpg" alt="Arduino UNO R3" />
+            <div class="comp-card__num mono">04</div>
+          </div>
+          <div class="comp-card__body">
+            <h3>Arduino UNO R3</h3>
+            <p>Microcontrôleur central : gestion du PWM, lecture des capteurs.</p>
+            <div class="comp-tags">
+              <span>PWM</span><span>PID</span><span>E-stop</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card__img">
+            <img src="image/poussoir.jpg" alt="Actionneur linéaire" />
+            <div class="comp-card__num mono">05</div>
+          </div>
+          <div class="comp-card__body">
+            <h3>Vérin électrique</h3>
+            <p>Actionneur linéaire 24 V pour l'éjection latérale des objets triés selon leur QR Code. Course contrôlée.</p>
+            <div class="comp-tags">
+              <span>Linéaire</span><span>24 V</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-card__img">
+            <img src="image/chassis2.jpeg" alt="Châssis profilé alu" />
+            <div class="comp-card__num mono">06</div>
+          </div>
+          <div class="comp-card__body">
+            <h3>Châssis aluminium</h3>
+            <p>Profilés aluminium : rapport rigidité/poids optimal, assemblage modulaire, adaptation facile des composants.</p>
+            <div class="comp-tags">
+              <span>Aluminium</span><span>Modulaire</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Flow diagram -->
+      <div class="flow-diagram reveal">
+        <div class="flow-step">
+          <div class="flow-step__icon">⬡</div>
+          <span>Détection objet</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-step__icon">⬡</div>
+          <span>Lecture QR</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-step__icon">⬡</div>
+          <span>Traitement Arduino</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-step__icon">⬡</div>
+          <span>Commande moteur</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-step__icon">⬡</div>
+          <span>Éjection / Transport</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▸ ANALYSE TECHNIQUE -->
+  <section id="analyse" class="section">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag mono">03 — Ingénierie</span>
+        <h2>Analyse technique</h2>
+      </div>
+
+      <div class="analyse-grid reveal">
+        <div class="analyse-card">
+          <h3>Choix mécaniques</h3>
+          <p>Profilés aluminium pour le meilleur rapport rigidité/poids. Rouleaux montés sur roulements à billes. Dimensionnement par calcul de flèche et vérification du couple requis.</p>
+          <div class="kpi-row">
+            <div class="kpi"><span class="kpi__val mono">&lt; 2 mm</span><span class="kpi__lbl">Flèche cible</span></div>
+            <div class="kpi"><span class="kpi__val mono">+20 %</span><span class="kpi__lbl">Marge couple</span></div>
+          </div>
+        </div>
+
+        <div class="analyse-card analyse-card--featured">
+          <h3>Électronique & Contrôle</h3>
+          <p>Driver pont-H L298N pour le pilotage bidirectionnel. Capteur QR code pour trier les objets.</p>
+          <div class="kpi-row">
+            <div class="kpi"><span class="kpi__val mono">± 5 %</span><span class="kpi__lbl">Erreur QR code</span></div>
+          </div>
+        </div>
+
+        <div class="analyse-card">
+          <h3>Performance & Tests</h3>
+          <p>Validation expérimentale : stabilité de vitesse, temps de transport mesuré, niveau sonore, consommation. Tests sur plage de charge 0,2 à 1 kg.</p>
+          <div class="kpi-row">
+            <div class="kpi"><span class="kpi__val mono">± 5 %</span><span class="kpi__lbl">Vitesse</span></div>
+            <div class="kpi"><span class="kpi__val mono">&lt; 60 dB</span><span class="kpi__lbl">Sonore</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schema-block reveal">
+        <h3>Schéma électrique</h3>
+        <img src="image/schema.png" alt="Schéma électrique" />
+      </div>
+
+      <div class="schema-block reveal">
+        <h3>Difficultés rencontrées</h3>
+        <img src="image/difficultés.png" alt="Difficultés" />
+      </div>
+    </div>
+  </section>
+  
+  <!-- ▸ DURABILITÉ -->
+  <section id="durabilite" class="section section--dark">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag mono">04 — Éco-conception</span>
+        <h2>Durabilité & ACV</h2>
+      </div>
+      <div class="acv-grid reveal">
+        <div class="acv-main">
+          <h3>Analyse du Cycle de Vie</h3>
+          <div class="acv-phases">
+            <div class="acv-phase">
+              <span class="acv-phase__step mono">A</span>
+              <div>
+                <strong>Matériaux responsables</strong>
+                <p>Utilisation d'aluminium recyclé et de composants en PLA (bioplastique) pour les pièces de support.</p>
+              </div>
+            </div>
+            <div class="acv-phase">
+              <span class="acv-phase__step mono">B</span>
+              <div>
+                <strong>Fabrication & Modularité</strong>
+                <p>Nous avons privilégié un usinage simple et un assemblage entièrement démontable. Cette conception  facilite le transport et permet au système de s'adapter à différents types d'industries.</p>
+              </div>
+            </div>
+            <div class="acv-phase">
+              <span class="acv-phase__step mono">C</span>
+              <div>
+                <strong>Usage optimisé</strong>
+                <p>Le programme d'automatisation a été conçu pour être fiable, autonome et performant, permettant un fonctionnement théorique 24h/24.</p>
+              </div>
+            </div>
+            <div class="acv-phase">
+              <span class="acv-phase__step mono">D</span>
+              <div>
+                <strong>Fin de vie et recyclabilité</strong>
+                <p>Grâce à sa démontabilité totale, chaque composant du convoyeur peut être trié et valorisé de manière indépendante en fin de cycle.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="acv-tags-panel">
+          <h3>Axes d'amélioration</h3>
+          <div class="acv-phases">
+            <div class="acv-phase">
+              <span class="acv-phase__step mono">A</span>
+              <div>
+                <strong>Sécurité renforcée</strong>
+                <p>Intégration d'un bouton d'arrêt d'urgence physique et d'un circuit de coupure rapide pour garantir la sécurité des opérateurs conformément aux normes industrielles.</p>
+              </div>
+            </div> <div class="acv-phase">
+              <span class="acv-phase__step mono">B</span>
+              <div>
+                <strong>Optimisation mécanique</strong> <p>Utilisation d'un tapis roulant plus fin et plus léger afin de réduire l'inertie globale, ce qui permettrait de diminuer le couple requis et de soulager le moteur.</p>
+              </div>
+            </div> <div class="acv-phase">
+              <span class="acv-phase__step mono">C</span>
+              <div>
+                <strong>Autonomie énergétique</strong> <p>Implantation de panneaux solaires couplés à une batterie pour rendre le convoyeur totalement autonome et éco-responsable, idéal pour des zones isolées ou des entrepôts vertueux.</p>
+              </div>
+            </div> <div class="acv-phase">
+              <span class="acv-phase__step mono">D</span>
+              <div>
+                <strong>Fiabilité du tri</strong> <p>Ajout d'une caméra intelligente pour remplacer ou seconder le lecteur de QR code actuel. Cela permettrait de détecter et de traiter les objets même si leur code est mal aligné, froissé ou partiellement masqué.</p>
+              </div>
+            </div>
+          </div>                 
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▸ GALERIE -->
+  <section id="galerie" class="section">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag mono">05 — Visuels</span>
+        <h2>Galerie</h2>
+      </div>
+      <div class="gallery">
+        <div class="gallery__item gallery__item--large reveal">
+          <video autoplay loop muted playsinline class="gallery__video">
+            <source src="1.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la lecture de cette vidéo.
+          </video>
+          <div class="gallery__overlay">
+            <span>Moteur qui fonctionne + qr code</span>
+          </div>
+        </div>
+        <figure class="gallery__item">
+          <img src="image/chassis.jpg" alt="Châssis CAO" loading="lazy"/>
+          <figcaption><span class="mono">02</span> Châssis CAO</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ▸ ÉQUIPE -->
+  <section id="equipe" class="section section--dark">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__tag mono">06 — L'équipe</span>
+        <h2>Les Concepteurs</h2>
+      </div>
+      <div class="team reveal">
+
+        <article class="member">
+          <div class="member__photo">
+            <img src="image/paul.jpeg" alt="Paul Dulcire" />
+            <div class="member__overlay"></div>
+          </div>
+          <div class="member__info">
+            <h3>Paul Dulcire</h3>
+            <span class="member__role">Chef de Projet</span>
+            <p class="member__desc">Coordination générale, responsable électronique et intégration de l'électronique sur le châssis.</p>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="member__photo">
+            <img src="image/louis.jpeg" alt="Louis Kaeppelin" />
+            <div class="member__overlay"></div>
+          </div>
+          <div class="member__info">
+            <h3>Louis Kaeppelin</h3>
+            <span class="member__role">Project Manager Officer</span>
+            <p class="member__desc">Suivi des livrables, planification et suivi des séances et conception mécanique.</p>
+          </div>
+        </article>
+
+        <article class="member">
+          <div class="member__photo">
+            <img src="image/François-Xavier.jpeg" alt="François-Xavier Poisson" />
+            <div class="member__overlay"></div>
+          </div>
+          <div class="member__info">
+            <h3>François‑Xavier Poisson</h3>
+            <span class="member__role">Ingénieur Projet</span>
+            <p class="member__desc">Conception mécanique.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ▸ FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="logo__icon">⬡</span>
+        <span>Convoyeur Mécatronique</span>
+      </div>
+      <p class="footer__copy">© <span id="year"></span> ICAM Paris — Projet mécatronique</p>
+      <nav class="footer__nav" aria-label="Liens footer">
+        <a href="#projet">Projet</a>
+        <a href="#analyse">Analyse</a>
+        <a href="#durabilite">Durabilité</a>
+        <a href="dossiers.html">Dossiers techniques</a>
+        <a href="#equipe">Équipe</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script2.js"></script>
+</body>
+</html>

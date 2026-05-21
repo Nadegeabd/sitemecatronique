@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dossiers Techniques — Projet mécatronique ICAM</title>
+  <meta name="description" content="Soutenances et livrables du projet de convoyeur mécatronique." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+
+  <div id="loader" class="loader">
+    <div class="loader__bar"></div>
+    <span class="loader__label">Chargement des documents…</span>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="logo" href="Index2.html#hero">
+      <span class="logo__icon">⬡</span>
+      <span>Convoyeur</span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <ul class="nav__list" id="navMenu">
+        <li><a href="Index2.html#projet">Projet</a></li>
+        <li><a href="Index2.html#fonctionnement">Fonctionnement</a></li>
+        <li><a href="Index2.html#analyse">Analyse</a></li>
+        <li><a href="Index2.html#durabilite">Durabilité</a></li>
+        <li><a href="#" class="active">Dossiers techniques</a></li>
+        <li><a href="Index2.html#galerie">Galerie</a></li>
+        <li><a href="Index2.html#equipe">Équipe</a></li>
+        <li>
+          <button id="themeToggle" class="theme-btn" aria-label="Basculer thème">
+            <span class="theme-btn__icon">◐</span>
+          </button>
+        </li>
+      </ul>
+      <button class="burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="dossiers-main" style="min-height: 100vh;">
+
+    <!-- Titre en haut -->
+    <div class="dossiers-header">
+      <h2>Dossiers & Soutenances</h2>
+      <p class="section__intro">Retrouvez ci-dessous l'ensemble des rapports techniques, présentations et soutenances qui ont jalonné le développement de notre convoyeur mécatronique.</p>
+    </div>
+
+    <!-- Cartes plus bas -->
+    <div class="dossiers-cards">
+      <div class="docs-grid reveal">
+
+        <div class="doc-card">
+          <div class="doc-card__content">
+            <h3>Revue 1</h3>
+            <p>Objectifs du projet, analyse fonctionnelle, organisation</p>
+            <a href="Présentation_Revue_1.pdf" target="_blank" class="btn btn--primary btn--sm">Télécharger PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-card__content">
+            <h3>Revue 2</h3>
+            <p>Préconcepts et solution retenue, choix de la structure, des composants et des matériaux et profil OPR</p>
+            <a href="Présentation_revue-2.pdf" target="_blank" class="btn btn--primary btn--sm">Télécharger PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-card__content">
+            <h3>Soutenance Décembre</h3>
+            <p>Reprise des 2 revues, budget et bilan personnel de l'équipe</p>
+            <a href="soutenance décembre.pdf" target="_blank" class="btn btn--primary btn--sm">Télécharger PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-card__content">
+            <h3>Poster</h3>
+            <p>Thématique, objectifs et méthodologie</p>
+            <a href="Convoyeur-SINGE-Poster.pdf" target="_blank" class="btn btn--primary btn--sm">Télécharger PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-card__content">
+            <h3>Cahier des Charges</h3>
+            <p>Expression fonctionnelle, Contraintes, Analyse des risques, synthèse et limites du projet</p>
+            <a href="CDCF (1).pdf" target="_blank" class="btn btn--primary btn--sm">Télécharger PDF</a>
+          </div>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-card__content">
+            <h3>Cahier de Conception</h3>
+            <p>Architecture et Conception, planification et phases de développement, détails techniques</p>
+            <a href="Cahier de conception.pdf" target="_blank" class="btn btn--primary btn--sm">Télécharger PDF</a>
+          </div>
+        </div>
+        
+        <div class="doc-card">
+            <div class="doc-card__content">
+              <h3>Cycle de Vie</h3>
+              <p>Assemblage et intégration, utilisation et maintenance </p>
+              <a href="rapport_cycle_vie_SINGE_vf (1).pdf" target="_blank" class="btn btn--primary btn--sm">Télécharger PDF</a>
+            </div>
+          </div>
+
+        <div class="doc-card">
+              <div class="doc-card__content">
+                <h3>Profil OPR d'équipe</h3>
+                <p>La clé pour mieux communiquer dans le groupe </p>
+                <a href="PROFIL OPR EQUIPE CONVOYEUR SINGE.pdf" target="_blank" class="btn btn--primary btn--sm">Télécharger PDF</a>
+              </div>
+          </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="logo__icon">⬡</span>
+        <span>Convoyeur Mécatronique</span>
+      </div>
+      <p class="footer__copy">© <span id="year"></span> ICAM Paris — Projet mécatronique</p>
+      <nav class="footer__nav" aria-label="Liens footer">
+        <a href="Index2.html#projet">Projet</a>
+        <a href="Index2.html#analyse">Analyse</a>
+        <a href="Index2.html#durabilite">Durabilité</a>
+        <a href="#">Dossiers techniques</a>
+        <a href="Index2.html#equipe">Équipe</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script2.js"></script>
+</body>
+</html>
