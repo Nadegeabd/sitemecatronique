@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGV VALO — Projet Mécatronique</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow+Condensed:wght@300;400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- moved CSS to external file: styles.css -->
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">AGV<span>VALO</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">Contexte</a></li>
+    <li><a href="#features">Fonctionnalités</a></li>
+    <li><a href="#cdc">CDC</a></li>
+    <li><a href="#demarche">Démarche</a></li>
+    <li><a href="#choix">Choix Techniques</a></li>
+    <li><a href="#final">Résultats</a></li>
+    <li><a href="#difficultes">Difficultés</a></li>
+    <li><a href="#team">Équipe</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+  </ul>
+  <div class="nav-tag">2025 — 2026</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-eyebrow">Projet Mécatronique — ICAM</div>
+
+    <h1 class="hero-title">
+      <span class="outline">Véhicule</span><br>
+      <span class="accent">Automome</span><br>
+      <span class="outline">de Livraison</span><br>
+      d'Outillage
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        Un AGV autonome conçu pour automatiser le transport de kits d'outillage entre la zone de maintenance et les postes CNC, intégrant LIDAR 360°, ROS2 Jazzy et SLAM temps réel.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value">5 kg</div>
+          <div class="stat-label">Charge utile max</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">0,7 m/s</div>
+          <div class="stat-label">Vitesse maximale</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">500 €</div>
+          <div class="stat-label">Budget matériel</div>
+        </div>
+      </div>
+      <div class="scroll-hint">Défiler</div>
+    </div>
+
+    
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section id="about">
+  <div class="container">
+    <div class="label">01 — Contexte & Objectifs</div>
+    <h2 class="section-heading">Le projet</h2>
+
+    <div class="about-layout">
+      <div class="about-text fade-up">
+        <p>
+          L'AGV VALO est un véhicule à guidage autonome conçu dans le cadre d'un projet mécatronique 
+          pluridisciplinaire à l'ICAM. Application concrète et synthétique de la mécatronique au 
+          carrefour de la <strong style="color:var(--text)">mécanique de précision</strong>, de 
+          l'<strong style="color:var(--text)">électronique embarquée</strong> et de 
+          l'<strong style="color:var(--text)">automatisme & robotique</strong>.
+        </p>
+        <p>
+          <strong style="color:var(--text)">Contexte industriel :</strong> Dans les ateliers de production modernes, 
+          la logistique interne est un enjeu critique. Le transport manuel de kits d'outillage (fraises, interfaces, 
+          porte-outils) entre la zone de maintenance centralisée et les unités CNC génère des pertes de temps, 
+          des erreurs de livraison et mobilise du personnel sur des tâches à faible valeur ajoutée.
+        </p>
+        <p>
+          <strong style="color:var(--text)">Mission de l'AGV :</strong> Automatiser ce flux logistique en transportant 
+          de façon autonome des kits d'outillage de ≤ 5 kg, de manière répétable, fiable et tracée — 
+          libérant les techniciens pour des activités de supervision et résolution de problèmes complexes.
+        </p>
+        <div style="margin-top:24px">
+          <span class="tag-pill">ROS2</span>
+          <span class="tag-pill">Raspberry Pi5</span>
+          <span class="tag-pill">Raspberry Pi Pico</span>
+          <span class="tag-pill">LIDAR</span>
+          <span class="tag-pill">IMU</span>
+          <span class="tag-pill">Li-Ion 4S4P</span>
+          <span class="tag-pill">SLAM</span>
+          <span class="tag-pill">Python</span>
+        </div>
+      </div>
+
+      <div class="about-specs fade-up" style="transition-delay:0.15s">
+        <div class="spec-row">
+          <span class="spec-key">Type</span>
+          <span class="spec-val">AGV autonome</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Navigation</span>
+          <span class="spec-val">LIDAR + SLAM</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Architecture</span>
+          <span class="spec-val">ROS2 Jazzy</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Alimentation</span>
+          <span class="spec-val">Batterie Li-Ion</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Dimensions max</span>
+          <span class="spec-val">400 × 300 × 200 mm</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Châssis</span>
+          <span class="spec-val">Profilés alu + panneaux bois</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Communication</span>
+          <span class="spec-val">Wi-Fi / ROS nodes</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Arrêt d'urgence (matériel non installé faute de bouton mais prêt)</span>
+          <span class="spec-val">Matériel + Logiciel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="features-section">
+  <div class="container">
+    <div class="label">02 — Fonctionnalités</div>
+    <h2 class="section-heading">Ce que fait<br>le VALO</h2>
+
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feat-num">F — 01</div>
+        <div class="feat-icon"><i class="fas fa-robot"></i></div>
+        <div class="feat-title">Navigation Autonome</div>
+        <p class="feat-desc">Déplacement sans intervention humaine grâce à la fusion LIDAR et odométrie. Planification de trajectoires avec évitement d'obstacles en temps réel.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:0.1s">
+        <div class="feat-num">F — 02</div>
+        <div class="feat-icon"><i class="fas fa-map"></i></div>
+        <div class="feat-title">Cartographie SLAM</div>
+        <p class="feat-desc">Construction dynamique d'une carte de l'environnement pendant le déplacement. Localisation simultanée pour une précision centimétrique.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:0.2s">
+        <div class="feat-num">F — 03</div>
+        <div class="feat-icon"><i class="fas fa-bolt"></i></div>
+        <div class="feat-title">Énergie Optimisée</div>
+        <p class="feat-desc">Pack Li-Ion 4S4P 16,8V max avec BMS actif 4S 20 A. Mesure temps réel de la tension et du courant.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:0.05s">
+        <div class="feat-num">F — 04</div>
+        <div class="feat-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="feat-title">Sécurité Active</div>
+        <p class="feat-desc">Arrêt d'urgence câblé physiquement indépendant du logiciel — bumpers fonctionnent même en cas de crash RPi5 (géré par Pi pico). Fusibles et BMS.</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:0.15s">
+        <div class="feat-num">F — 05</div>
+        <div class="feat-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="feat-title">Connectivité ROS2</div>
+        <p class="feat-desc">RPi5 (ROS2 Jazzy, Nav2, haut niveau) + RPi Pico (capteurs, moteurs, bas niveau). Intégration de nomachine, contrôle distanciel via Hotspot RPi5 et Wifi (Rviz).</p>
+      </div>
+      <div class="feature-card fade-up" style="transition-delay:0.25s">
+        <div class="feat-num">F — 06</div>
+        <div class="feat-icon"><i class="fas fa-wrench"></i></div>
+        <div class="feat-title">Maintenabilité</div>
+        <p class="feat-desc">Châssis double étage à clips coulissants : démontage avec outils classiques. Possibilité d'amélioration avec lumière et son.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAHIER DES CHARGES -->
+<section id="cdc">
+  <div class="container">
+    <div class="label">03 — Cahier des charges</div>
+    <h2 class="section-heading">Spécifications<br>du projet</h2>
+
+    <div class="cdc-layout">
+      <div class="cdc-sidebar fade-up">
+        <div class="cdc-big-num">CDC</div>
+        <p style="color: var(--text); font-size:0.88rem; line-height:1.7;">
+          L'ensemble des exigences fonctionnelles et techniques qui définissent le périmètre du projet AGV VALO.
+        </p>
+      </div>
+
+      <div class="cdc-entries fade-up" style="transition-delay:0.1s">
+        <div class="cdc-entry">
+          <div class="cdc-entry-title">Objectif principal</div>
+          <p>Concevoir et réaliser un AGV prototype capable de transporter des kits d'outillage légers (fraises, interfaces, porte-outils) entre une zone de maintenance centralisée et des postes CNC, de façon autonome et répétable.</p>
+        </div>
+        <div class="cdc-entry">
+          <div class="cdc-entry-title">Contraintes physiques</div>
+          <ul>
+            <li>Dimensions maximales : 400 × 300 × 200 mm</li>
+            <li>Poids à vide ≤ 10 kg</li>
+            <li>Charge utile maximale : 5 kg</li>
+            <li>Vitesse maximale : 0,7 m/s — Vitesse nominale : 0,4 m/s ± 0,1</li>
+            <li>Budget matériel : 1 500 € TTC (500€ réels)</li>
+          </ul>
+        </div>
+        <div class="cdc-entry">
+          <div class="cdc-entry-title">Exigences de navigation</div>
+          <ul>
+            <li>Déplacement autonome sur sol industriel plat (10°C–35°C)</li>
+            <li>Évitement d'obstacles statiques et dynamiques</li>
+            <li>Précision de positionnement ± 25 mm</li>
+          </ul>
+        </div>
+        <div class="cdc-entry">
+          <div class="cdc-entry-title">Exigences électroniques & énergie</div>
+          <ul>
+            <li>Alimentation 16,8V DC via pack Li-Ion 4S4P</li>
+            <li>Autonomie ≥ 30 minutes en service continu</li>
+            <li>Circuit de puissance isolé du circuit de commande</li>
+            <li>BMS 4S 20 A avec protection surcharge / décharge profonde</li>
+            <li>Capacité de décharge pulsée ≥ 20 A (pics moteurs)</li>
+          </ul>
+        </div>
+        <div class="cdc-entry">
+          <div class="cdc-entry-title">Contraintes logicielles</div>
+          <ul>
+            <li>Architecture ROS2 Jazzy — RPi5 (haut niveau) + RPi Pico (bas niveau)</li>
+            <li>Interface de supervision via Rviz</li>
+          </ul>
+        </div>
+        <div class="cdc-entry">
+          <div class="cdc-entry-title">Sécurité & conformité</div>
+          <ul>
+            <li>Arrêt d'urgence câblé physiquement indépendant du logiciel (manque le bouton uniquement)</li>
+            <li>Fusibles + BMS</li>
+            <li>IP20 minimum (avec panneaux latéraux non montés)</li>
+            <li>Redondance de sécurité et fusible différenciés</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DÉMARCHE -->
+<section id="demarche">
+  <div class="container">
+    <div class="label">04 — Démarche suivie</div>
+    <h2 class="section-heading">Notre<br>Méthodologie</h2>
+
+    <div class="timeline fade-up" style="margin-top:60px">
+      <div class="timeline-item">
+        <div class="timeline-marker">01</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Analyse du besoin & Cahier des charges</div>
+          <p class="timeline-desc">Définition des exigences fonctionnelles et techniques. Identification des contraintes liées à l'environnement industriel simulé, à la sécurité, et à l'autonomie énergétique.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">02</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Conception mécanique & électronique</div>
+          <p class="timeline-desc">Dimensionnement du châssis en aluminium, choix des motoréducteurs, conception du circuit de puissance isolé de la partie commande. Création des schémas électriques et vues CAO.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">03</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Développement logiciel & intégration ROS2</div>
+          <p class="timeline-desc">Mise en place de l'architecture ROS2 Jazzy. Développement des nœuds de perception, localisation et navigation. Intégration de Nav2 et paramétrage du SLAM avec le YDLidar X4 Pro.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">04</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Assemblage & tests d'intégration</div>
+          <p class="timeline-desc">Assemblage mécanique et câblage. Tests unitaires de chaque sous-système, puis intégration progressive. Validation du comportement en environnement de test simulé.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">05</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Validation finale & démonstration</div>
+          <p class="timeline-desc">Réalisation de missions complètes en boucle fermée. Mesure des performances (précision, autonomie, temps de mission). Préparation de la démonstration en conditions réelles.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHOIX TECHNIQUES -->
+<section id="choix" class="features-section">
+  <div class="container">
+    <div class="label">05 — Choix techniques</div>
+    <h2 class="section-heading">Décisions<br>d'ingénierie</h2>
+
+    <div class="choices-grid" style="margin-top:60px">
+      <div class="choice-card fade-up">
+        <div class="choice-domain">Châssis</div>
+        <div class="choice-title">Profilés aluminium et panneaux bois 6mm</div>
+        <p class="choice-body">Ossature profilés alu + panneaux fins coulissants, triple niveau, accès sans outil spécialisé. Stock de profilés disponible.</p>
+        <div class="choice-verdict verdict-ok">Retenu</div>
+      </div>
+      <div class="choice-card fade-up" style="transition-delay:0.1s">
+        <div class="choice-domain">Motorisation</div>
+        <div class="choice-title">Moteurs DC à balais + réducteur</div>
+        <p class="choice-body">3 types comparés : brushed (simple, bon couple, lourd), brushless (excellent rendement, coûteux), pas-à-pas (précis, onéreux). Brushed retenu pour le rapport coût/performance dans le budget de 1 500 €. Réducteur nécessaire pour atteindre le couple suffisant à 0,4 m/s.</p>
+        <div class="choice-verdict verdict-ok">Retenu</div>
+      </div>
+      <div class="choice-card fade-up" style="transition-delay:0.2s">
+        <div class="choice-domain">Énergie</div>
+        <div class="choice-title">Batterie Li-Ion 4S4P + BMS passif</div>
+        <p class="choice-body">Tension 16,8V max (standard AGV). Architecture 4S4P pour équilibrer autonomie et courant de décharge. BMS passif 4S 20 A pour équilibrage entre cellules et protection.</p>
+        <div class="choice-verdict verdict-ok">Retenu</div>
+      </div>
+      <div class="choice-card fade-up" style="transition-delay:0.05s">
+        <div class="choice-domain">Architecture commande</div>
+        <div class="choice-title">RPi5 + RPi pico</div>
+        <p class="choice-body">4 solutions comparées. RPi5 seul (Sol.1) : trop risqué en cas de crash logiciel. Sol.3 modulaire : trop complexe et coûteuse. Sol.2A retenue : RPi5 pour le haut niveau (ROS2, Nav2, supervision) + RPi pico pour le bas niveau (bumpers, moteurs, capteurs). Bumpers garantis même en cas de plantage RPi5.</p>
+        <div class="choice-verdict verdict-ok">Retenu</div>
+      </div>
+      <div class="choice-card fade-up" style="transition-delay:0.15s">
+        <div class="choice-domain">Connectivité</div>
+        <div class="choice-title">Wifi + Hotspot</div>
+        <p class="choice-body">Solution retenue : Wifi + Hotspot pour assurer la communication sans fil et l'accès à l'interface utilisateur.</p>
+        <div class="choice-verdict verdict-ok">Retenu</div>
+      </div>
+      <div class="choice-card fade-up" style="transition-delay:0.25s">
+        <div class="choice-domain">Déplacement holonome</div>
+        <div class="choice-title">4 roues motrices mécanums</div>
+        <p class="choice-body">Solution retenue : 4 roues motrices mécanums pour un déplacement efficace et précis dans les environnements complexes.</p>
+        <div class="choice-verdict verdict-ok">Retenu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="team-section">
+  <div class="container">
+    <div class="label">07 — Équipe</div>
+    <h2 class="section-heading">Les ingénieurs</h2>
+
+    <div class="team-grid">
+      <div class="team-card fade-up">
+        <img src="images/raphael.jpg" class="member-avatar" alt="Raphaël Morin">
+        <div class="member-name">Raphaël Morin</div>
+        <div class="member-role">Chef de Projet</div>
+        <div class="member-domain">Supervision globale, coordination des livrables, architecture électronique, software, haut niveau logique, coordination des systèmes et stratégie de navigation.</div>
+      </div>
+      <div class="team-card fade-up" style="transition-delay:0.1s">
+        <img src="images/gabriel.jpg" class="member-avatar" alt="Gabriel Salmer">
+        <div class="member-name">Gabriel Salmer</div>
+        <div class="member-role">PMO</div>
+        <div class="member-domain">Gestion du planning et des risques. Conception et validation du circuit de puissance. PID et gestion du bas niveau logique. Disposition des composants</div>
+      </div>
+      <div class="team-card fade-up" style="transition-delay:0.3s">
+        <img src="images/edouard.jpg" class="member-avatar" alt="Edouard Barrier">
+        <div class="member-name">Edouard Barrier</div>
+        <div class="member-role">Ingénieur Projet</div>
+        <div class="member-domain">Conception mécanique, choix des matériaux, fabrication, assemblage du châssis et améliorations de la structure.</div>
+      </div>
+      <div class="team-card fade-up" style="transition-delay:0.2s">
+        <img src="images/loic.jpg" class="member-avatar" alt="Loïc Michel">
+        <div class="member-name">Loïc Michel</div>
+        <div class="member-role">Ingénieur Projet</div>
+        <div class="member-domain">Noyé sous la paperasse</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJET FINAL -->
+<section id="final">
+  <div class="container">
+    <div class="label">06 — Résultats & Démonstration</div>
+    <h2 class="section-heading">Résultat &amp;<br>Démonstration</h2>
+
+    <div class="final-layout">
+      <div class="video-placeholder fade-up">
+        <video class="demo-video" controls preload="metadata" poster="images/video-poster.jpg">
+          <source src="videos/agv1.mp4" type="video/mp4">
+          Votre navigateur ne prend pas en charge la vidéo HTML5.
+        </video>
+        <div class="video-label">Vidéo démonstrative — AGV VALO en action</div>
+      </div>
+
+      <div class="result-card fade-up" style="transition-delay:0.1s">
+        <h3>Résultats obtenus</h3>
+        <p>
+          Le prototype final réalise des missions de transport autonome en boucle fermée dans l'environnement
+          de test. Il atteint les objectifs définis sur rviz.
+        </p>
+        <p style="margin-top:14px">
+          L'autonomie mesurée en conditions réelles est d'au moins 2h30, dépassant les 2h spécifiées dans le cahier des charges.
+        </p>
+        <div>
+          <span class="tag-pill">Objectifs atteints</span>
+          <span class="tag-pill">Prototype fonctionnel</span>
+        </div>
+      </div>
+
+      <div class="result-card fade-up" style="transition-delay:0.2s">
+        <h3>Points techniques clés</h3>
+        <p>
+          Intégration complète de la chaîne perception–décision–actuation sous ROS2. Le nœud de navigation
+          combine Nav2, un LIDAR YDLidar X4 Pro, IMU et des encodeurs roues pour une localisation robuste.
+        </p>
+        <p style="margin-top:14px">
+          Le circuit de puissance a été conçu avec une isolation entre la partie commande et la partie moteurs.
+        </p>
+        <div>
+          <span class="tag-pill">Nav2</span>
+          <span class="tag-pill">YDLidar X4 Pro</span>
+          <span class="tag-pill">IMU</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFICULTÉS -->
+<section id="difficultes">
+  <div class="container">
+    <div class="label">08 — Difficultés rencontrées</div>
+    <h2 class="section-heading">Obstacles &amp;<br>Solutions</h2>
+
+    <div class="diff-grid fade-up" style="margin-top:60px">
+      <div class="diff-card">
+        <div class="diff-badge">Mécanique</div>
+        <div class="diff-title">Structure en profilés aluminium et panneau de bois</div>
+        <p class="diff-body">Difficulté de démontage à cause de la nécessité de retirer plusieurs éléments pour accéder aux composants internes (dû au besoin de rigidité châssis).</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-badge">Navigation</div>
+        <div class="diff-title">Angles morts LIDAR et paramétrage</div>
+        <p class="diff-body">Nécessité de filtrer les montants de la structure pour éviter la paranoïa de l'agv. Paramétrage difficile pour le rendre persévérant.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-badge">Électronique</div>
+        <div class="diff-title">Protocole de communication UART</div>
+        <p class="diff-body">Protocole hardcodé avec des bytes fixes, rendant la maintenance, les ajustements et les améliorations plus complexes.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-badge">Énergie</div>
+        <div class="diff-title">Choix des capteurs ultrasons</div>
+        <p class="diff-body">Impossible de le mettre en place avec la structure initialement prévu car level-shifter incompatible. Nécessité de repenser l'architecture électronique.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-badge">Positionnement</div>
+        <div class="diff-title">Encodeurs, IMU et Kalman</div>
+        <p class="diff-body">Difficile à paramétrer avec dérive dû à la gravité terrestre et aux glissements. défaut compensé par le lidar.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-badge">Puissance de calcul et chauffe</div>
+        <div class="diff-title">Surchauffe RPi5 en mission prolongée et saturation</div>
+        <p class="diff-body">Le Raspberry Pi 5 gérant simultanément ROS2, Nav2 et SLAM montait en température lors de missions longues. Le venitlateur compense mais la saturation des capacités de traitement et de calcul de la RPI5 est fréquente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div class="container">
+    <div class="label">09 — Galerie</div>
+    <h2 class="section-heading">En images</h2>
+
+    <div class="gallery-grid">
+      <div class="gallery-item g1">
+        <img src="images/global.jpeg" alt="Vue d'ensemble — Prototype final" class="gallery-image">
+        <div class="gallery-overlay">Vue d'ensemble — Prototype final</div>
+      </div>
+      <div class="gallery-item g2">
+        <img src="images/elec.jpeg" alt="Électronique embarquée" class="gallery-image">
+        <div class="gallery-overlay">Électronique embarquée</div>
+      </div>
+      <div class="gallery-item g3">
+        <img src="images/cao.jpeg" alt="Châssis — Vue CAO" class="gallery-image">
+        <div class="gallery-overlay">Châssis — Vue CAO</div>
+      </div>
+      <div class="gallery-item g4">
+        <img src="images/rviz.png" alt="Cartographie SLAM générée" class="gallery-image">
+        <div class="gallery-overlay">Cartographie SLAM générée</div>
+      </div>
+      <div class="gallery-item g5">
+        <img src="images/schema_agv.jpg" alt="Schéma de câblage" class="gallery-image">
+        <div class="gallery-overlay">Schéma de câblage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">AGV<span>VALO</span></div>
+  <div class="footer-info">
+    Projet mécatronique — ICAM<br>
+    Promotion 2025–2026<br>
+    Morin · Salmer · Barrier · Michel
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer pour les animations fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
