@@ -53,6 +53,7 @@
             background-color: #0066cc;
             margin: 30px 0;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
         }
         .navbar button {
             font-size: 18px;
@@ -85,7 +86,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- SECTIONS D'ÉTAPES --- */
+        /* --- SECTIONS D'ÉTAPES & TECHNIQUE --- */
         .etape-section {
             background-color: white;
             padding: 30px;
@@ -102,7 +103,12 @@
         }
         .etape-section ul {
             line-height: 1.6;
+            padding-left: 20px;
         }
+        .etape-section li {
+            margin-bottom: 8px;
+        }
+        
         /* Style distinctif pour la section des problèmes en bleu */
         .defis-section {
             border-left: 5px solid #0066cc;
@@ -114,10 +120,8 @@
         .defis-section h4 {
             color: #333;
             margin-top: 20px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             font-size: 1.1em;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 5px;
         }
 
         .step-photo {
@@ -227,46 +231,12 @@
             border-radius: 8px;
             outline: none;
         }
-        .back-btn {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 999;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  background: white;
-  color: #1a1a18;
-  text-decoration: none;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  padding: 8px 12px;
-  border-radius: 8px;
-
-  border: 1px solid #e8e4df;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-
-  transition: all 0.2s ease;
-}
-
-.back-btn:hover {
-  transform: translateX(-3px);
-  background: #fff4e6;
-  border-color: #F7941D;
-  color: #F7941D;
-}
     </style>
 </head>
 <body>
 
     <header>
         <img src="bras1png.png" alt="Bandeau BR3A">
-<a href="../page22.html" class="back-btn">← Retour</a>
-
     </header>
 
     <h1>PROJET BR3A</h1>
@@ -276,6 +246,7 @@
         <button class="tab-link" onclick="openTab(event, 'Accueil')" id="defaultOpen">Accueil</button>
         <button class="tab-link" onclick="openTab(event, 'Video')">Vidéo</button>
         <button class="tab-link" onclick="openTab(event, 'Camera')">Caméra</button>
+        <button class="tab-link" onclick="openTab(event, 'Technique')">Données Techniques</button>
         <button class="tab-link" onclick="openTab(event, 'Documents')">Documents</button>
         <button class="tab-link" onclick="openTab(event, 'Avancement')">Avancement</button>
         <button class="tab-link" onclick="openTab(event, 'Equipe')">L'Équipe</button>
@@ -326,6 +297,45 @@
                 Votre navigateur ne prend pas en charge la lecture de vidéos. Vous pouvez télécharger la vidéo <a href="Vidéo cam.mp4">ici</a>.
             </video>
         </div>
+    </div>
+
+    <div id="Technique" class="tab-content">
+        <h2>Spécifications & Architecture du Système</h2>
+        <p>Synthèse rapide des caractéristiques matérielles, fonctionnelles et logicielles du prototype BR3A.</p>
+
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; max-width: 850px; margin: auto;">
+            <section class="etape-section" style="flex: 1; min-width: 300px; margin: 10px;">
+                <h3>Spécifications Matérielles</h3>
+                <ul>
+                    <li><strong>Poids :</strong> ~3 kg (structure légère et optimisée).</li>
+                    <li><strong>Amplitudes :</strong> 40 cm (axes X/Y), 30 cm (axe Z).</li>
+                    <li><strong>Motorisation :</strong> 5x Servomoteurs <strong>Feetech STS3215</strong>.</li>
+                    <li><strong>Châssis :</strong> 100% PLA en impression 3D (remplissage 40%).</li>
+                    <li><strong>Alimentation :</strong> Ligne dédiée en 12V pour les servos.</li>
+                    <li><strong>Unité centrale :</strong> Carte Raspberry Pi + Pi Cam.</li>
+                </ul>
+            </section>
+
+            <section class="etape-section" style="flex: 1; min-width: 300px; margin: 10px;">
+                <h3>Fonctionnalités Principales</h3>
+                <ul>
+                    <li><strong>Vision intégrée :</strong> Détection de la matrice et repérage du verre en &le; 1 s.</li>
+                    <li><strong>Précision spatiale :</strong> Positionnement et dépose à &plusmn;2 mm.</li>
+                    <li><strong>Capacité de charge :</strong> Déplacement de verres standards (jusqu'à 200 g).</li>
+                    <li><strong>Autonomie :</strong> Planification de trajectoire automatique sans collision.</li>
+                </ul>
+            </section>
+        </div>
+
+        <section class="etape-section">
+            <h3>Architecture Logicielle & Programmation</h3>
+            <ul>
+                <li><strong>Framework ROS :</strong> Architecture modulaire par nœuds (Vision, Calcul, Moteurs) utilisant MoveIt pour le calcul de trajectoires fluides et RViz pour la visualisation.</li>
+                <li><strong>Modélisation URDF :</strong> Fichier de configuration XML décrivant la géométrie exacte du bras (segments, pivots, limites). Indispensable pour éviter que le robot ne se percute.</li>
+                <li><strong>Bridge ROS ➔ Moteurs :</strong> Passerelle informatique codée en Python convertissant les coordonnées spatiales virtuelles de ROS en commandes directes pour les servos Feetech.</li>
+                <li><strong>Bridge Moteurs ➔ Caméra :</strong> Boucle de rétroaction en direct. La caméra transmet instantanément les coordonnées (X, Y, Z) calculées sur la matrice visuelle pour guider le bras vers sa cible.</li>
+            </ul>
+        </section>
     </div>
 
     <div id="Documents" class="tab-content">
@@ -389,15 +399,15 @@
         <section class="etape-section defis-section">
             <h3>Défis & Difficultés Rencontrées</h3>
             
-            <h4>Gestion de Projet & Coordination</h4>
-            <p>Un projet multidisciplinaire demande une organisation rigoureuse. Bien que chacun de nous ait des tâches techniques bien définies (CAO, ROS, traitement d'image...), la principale difficulté a résidé dans la <strong>coordination globale</strong>. Harmoniser le calendrier de la fabrication mécanique avec les impératifs du calendrier de développement informatique a été un vrai défi. L'assemblage final a nécessité de nombreux ajustements en direct pour faire coïncider le travail de chacun, mettant en lumière l'importance d'une communication continue en ingénierie.</p>
+            <h4>Gestion de Projet</h4>
+            <p><strong>Coordination globale :</strong> Synchroniser la fabrication mécanique en PLA avec le calendrier de développement sur ROS a représenté notre principal défi organisationnel pour l'assemblage final.</p>
             
             <h4>Obstacles Techniques</h4>
             <ul>
-                <li><strong>Modélisation URDF complexe :</strong> La création du fichier URDF (Unified Robot Description Format) a nécessité un travail méticuleux de la part de Giulia. Définir correctement les repères spatiaux (frames), les masses, l'inertie et les limites articulaires du bras a demandé de nombreuses itérations pour obtenir une simulation sans erreur, fidèle à la réalité physique de notre robot.</li>
-                <li><strong>Mise en route fastidieuse de la caméra :</strong> L'initialisation matérielle et la configuration de la caméra (gérées par Baptiste) se sont avérées plus longues et capricieuses que prévu. Assurer un flux vidéo stable et continu vers notre environnement ROS a nécessité un débuggage approfondi.</li>
-                <li><strong>Déploiement du code sur la Raspberry Pi Cam :</strong> Le portage de la matrice de vision (développée par Léopold) vers la Raspberry Pi a posé un défi majeur d'optimisation. L'algorithme initial demandait des ressources de calcul que la carte embarquée peinait à fournir, posant des problèmes de compatibilité et de latence qu'il a fallu contourner pour maintenir une détection fluide.</li>
-                <li><strong>Gestion des tensions et de l'alimentation :</strong> L'électronique de puissance a apporté son lot de complications. Coordonner les différentes plages de tensions nécessaires (notamment l'alimentation stable requise pour la logique des contrôleurs et la Raspberry Pi face aux fortes demandes de courant des servomoteurs lors des phases d'accélération) a demandé une attention particulière afin d'éviter les chutes de tension critiques et les redémarrages intempestifs du système.</li>
+                <li><strong>Modélisation URDF :</strong> Paramétrage complexe des repères spatiaux et des limites articulaires pour obtenir une simulation fidèle et sans erreur sous ROS.</li>
+                <li><strong>Configuration de la caméra :</strong> Initialisation matérielle capricieuse pour assurer un flux vidéo stable et continu vers notre environnement de calcul.</li>
+                <li><strong>Optimisation Raspberry Pi :</strong> Portage délicat de l'algorithme de matrice visuelle nécessitant d'importantes optimisations de code pour éliminer la latence.</li>
+                <li><strong>Gestion de la puissance :</strong> Équilibrage des tensions pour absorber les forts appels de courant des 5 servomoteurs Feetech 12V lors des phases d'accélération.</li>
             </ul>
         </section>
     </div>
